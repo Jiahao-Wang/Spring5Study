@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    id：对象的别名，class：类的路径-->
+    <!--    有空参构造器，有 set 方法：使用 set 注入属性-->
+    <bean id="book" class="com.spring5study.beanIntro.Book">
+        <!--        name：参数名-->
+        <property name="bname" value="易筋经"></property>
+        <property name="bauthor" value="达摩老祖"></property>
+    </bean>
+
+    <!--    只有带参数的构造器，就用构造器注入属性-->
+    <bean id="order" class="com.spring5study.beanIntro.Order">
+        <constructor-arg name="oname" value="computer"></constructor-arg>
+        <constructor-arg name="address" value="Asia"></constructor-arg>
+    </bean>
+</beans>
