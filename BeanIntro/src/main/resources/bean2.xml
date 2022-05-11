@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="order1" class="com.spring5study.beanIntro.Order">
+        <constructor-arg name="oname" value="o1"/>
+        <constructor-arg name="address" value="a1"/>
+    </bean>
+    <bean id="order2" class="com.spring5study.beanIntro.Order">
+        <constructor-arg name="oname" value="o2"/>
+        <constructor-arg name="address" value="a2"/>
+    </bean>
+
+    <bean id="orders" class="com.spring5study.beanIntro.Orders">
+        <property name="orders">
+            <list>
+                <ref bean="order1"></ref>
+                <ref bean="order2"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>

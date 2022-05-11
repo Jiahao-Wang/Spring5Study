@@ -1,7 +1,6 @@
 package com.spring5study.beanIntroTest;
 
-import com.spring5study.beanIntro.Book;
-import com.spring5study.beanIntro.Order;
+import com.spring5study.beanIntro.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -34,4 +33,35 @@ public class TestSpring5 {
 		System.out.println(order.toString());
 
 	}
+
+	@Test
+	public void testLibrary() {
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("bean.xml");
+
+		Library library = context.getBean("library", Library.class);
+		System.out.println(library.toString());
+	}
+
+	@Test
+	public void testStudent() {
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("bean1.xml");
+
+		Student student = context.getBean("student", Student.class);
+		System.out.println(student.toString());
+	}
+
+	@Test
+	public void testOrders() {
+		//1 加载spring配置文件
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("bean3.xml");
+
+		//2 获取配置创建的对象
+		Orders orders = context.getBean("orders", Orders.class);
+		System.out.println(orders.toString());
+
+	}
+
 }

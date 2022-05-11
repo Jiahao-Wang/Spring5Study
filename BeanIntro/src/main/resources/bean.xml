@@ -25,10 +25,36 @@
 <!--    </bean>-->
 
     <!-- xml 注入其他类型属性：特殊符号 -->
+<!--    <bean id="book" class="com.spring5study.beanIntro.Book">-->
+<!--        <property name="bname">-->
+<!--            <value><![CDATA[<<书>>]]></value>-->
+<!--        </property>-->
+<!--        <property name="bauthor"><null/></property>-->
+<!--    </bean>-->
+
+<!--    注入属性：外部 Bean：用 ref 注入一个已经创建好的对象-->
+<!--    <bean id="library" class="com.spring5study.beanIntro.Library">-->
+<!--        <property name="b" ref="book"/>-->
+<!--    </bean>-->
+
+<!--    注入属性：内部 Bean：在 bean 内部新建一个对象-->
+<!--    <bean id="library" class="com.spring5study.beanIntro.Library">-->
+<!--        <property name="b">-->
+<!--            <bean id="book" class="com.spring5study.beanIntro.Book">-->
+<!--                <property name="bauthor" value="张无忌"></property>-->
+<!--                <property name="bname" value="葵花宝典"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    级联赋值：外面已有相应的对象，在里面重新赋值-->
+    <bean id="library" class="com.spring5study.beanIntro.Library">
+        <property name="b" ref="book"></property>
+        <property name="b.bname" value="杂志1"></property>
+        <property name="b.bauthor" value="无穷小亮"></property>
+    </bean>
     <bean id="book" class="com.spring5study.beanIntro.Book">
-        <property name="bname">
-            <value><![CDATA[<<书>>]]></value>
-        </property>
+        <property name="bname" value="易筋经"></property>
         <property name="bauthor"><null/></property>
     </bean>
 </beans>
