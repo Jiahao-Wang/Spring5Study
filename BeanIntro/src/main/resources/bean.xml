@@ -5,15 +5,30 @@
 
     <!--    id：对象的别名，class：类的路径-->
     <!--    有空参构造器，有 set 方法：使用 set 注入属性-->
-    <bean id="book" class="com.spring5study.beanIntro.Book">
-        <!--        name：参数名-->
-        <property name="bname" value="易筋经"></property>
-        <property name="bauthor" value="达摩老祖"></property>
-    </bean>
+    <!--    name：参数名-->
+<!--    <bean id="book" class="com.spring5study.beanIntro.Book">-->
+<!--        <property name="bname" value="易筋经"></property>-->
+<!--        <property name="bauthor" value="达摩老祖"></property>-->
+<!--    </bean>-->
 
     <!--    只有带参数的构造器，就用构造器注入属性-->
     <bean id="order" class="com.spring5study.beanIntro.Order">
         <constructor-arg name="oname" value="computer"></constructor-arg>
         <constructor-arg name="address" value="Asia"></constructor-arg>
+    </bean>
+
+    <!-- xml 注入其他类型属性：-->
+    <!-- xml 注入其他类型属性：null-->
+<!--    <bean id="book" class="com.spring5study.beanIntro.Book">-->
+<!--        <property name="bname" value="易筋经"></property>-->
+<!--        <property name="bauthor"><null/></property>-->
+<!--    </bean>-->
+
+    <!-- xml 注入其他类型属性：特殊符号 -->
+    <bean id="book" class="com.spring5study.beanIntro.Book">
+        <property name="bname">
+            <value><![CDATA[<<书>>]]></value>
+        </property>
+        <property name="bauthor"><null/></property>
     </bean>
 </beans>
