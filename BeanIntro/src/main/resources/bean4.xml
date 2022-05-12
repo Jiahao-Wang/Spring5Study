@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="school" class="com.spring5study.beanIntro.School" init-method="initMethod" destroy-method="destroyMethod">
+
+        <property name="name" value="学校"></property>
+
+    </bean>
+
+    <!--配置后置处理器，对所有这个文件里配置的 bean 都有效-->
+    <bean id="schoolPost" class="com.spring5study.beanIntro.SchoolPost"></bean>
+</beans>

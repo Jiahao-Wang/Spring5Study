@@ -52,6 +52,8 @@ public class TestSpring5 {
 		System.out.println(student.toString());
 	}
 
+
+	// 测试注入对象的list
 	@Test
 	public void testOrders() {
 		//1 加载spring配置文件
@@ -62,6 +64,18 @@ public class TestSpring5 {
 		Orders orders = context.getBean("orders", Orders.class);
 		System.out.println(orders.toString());
 
+	}
+
+	@Test
+	public void testSchool(){
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean4.xml");
+		School school = context.getBean("school", School.class);
+
+		System.out.println("第四步 获取创建 bean 实例对象");
+		System.out.println(school);
+
+		//手动让 bean 实例销毁
+		context.close();
 	}
 
 }
