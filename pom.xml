@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>BeanIntro</module>
-        <module>FactoryBeanIntro</module>
+        <module>AnnotationBean</module>
     </modules>
 
     <properties>
