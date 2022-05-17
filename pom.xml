@@ -11,6 +11,7 @@
     <modules>
         <module>BeanIntro</module>
         <module>AnnotationBean</module>
+        <module>AOP</module>
     </modules>
 
     <properties>
