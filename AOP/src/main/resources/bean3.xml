@@ -7,12 +7,21 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
     <!--注册 bean-->
     <!--增强别人的类，和被增强的类，都要注册-->
     <bean id="user" class="com.aop.aspectjannotation.User"/>
-    <bean id="userProxy" class="com.aop.aspectjannotation.UserProxy"/>
+    <bean id="diy" class="com.aop.aspectjannotation.DiyMethods"/>
 
-    <!--开启 Aspect 生成代理对象-->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <aop:config>
+        <!--自定义切面。ref 里是有增强方法的类-->
+        <aop:aspect ref="diy">
+            <!--设置切入点-->
+            <aop:pointcut id="userpointcut" expression="execution(* com.aop.aspectjannotation.User.add(..))"/>
+
+            <!--设置通知。这里面就可以选那五种通知类型了-->
+            <aop:before method="before" pointcut-ref="userpointcut"/>
+            <aop:after method="after" pointcut-ref="userpointcut"/>
+        </aop:aspect>
+    </aop:config>
 </beans>

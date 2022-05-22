@@ -2,7 +2,6 @@ package com.aop.aspectjannotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
 
 /**
  * @author Jiahao Wang
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @create 2022-05-17 19:01
  */
 
-@Component
 @Aspect
 public class UserProxy {
 
@@ -48,7 +46,6 @@ public class UserProxy {
 	// 环绕通知
 	@Around(value = "pointcutDemo()")
 	public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
-
 		System.out.println("before around");
 
 		// 被增强方法执行前后分界点
@@ -57,6 +54,4 @@ public class UserProxy {
 		System.out.println("after around");
 
 	}
-
-
 }
